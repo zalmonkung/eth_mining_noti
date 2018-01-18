@@ -4,7 +4,7 @@ var unpaid = 0.04325;
 var eththb = 0;
 var value = 0;
 
-/*
+
 function sendLine(msg){
   const request = require('request');
    request({
@@ -22,7 +22,7 @@ function sendLine(msg){
   });
    console.log("sendLine : "+msg);
 }
-*/
+
 
 function getBx(){
   const url ="https://bx.in.th/api/orderbook/?pairing=21";
@@ -58,7 +58,7 @@ https.get(url, res => {
     unpaid = (body.data.unpaid*0.000000000000000001);
     value = (unpaid*eththb).toFixed(2);
 
-    //sendLine("ขุดได้เหรียญ ETH แล้ว = "+unpaid+" อัตราแลกเปลี่ยน = "+eththb+ " คิดเป็นเงิน = "+value+" บาท");
+    sendLine("ขุดได้เหรียญ ETH แล้ว = "+unpaid+" อัตราแลกเปลี่ยน = "+eththb+ " คิดเป็นเงิน = "+value+" บาท");
     console.log("ขุดได้เหรียญ ETH แล้ว = "+unpaid+" อัตราแลกเปลี่ยน = "+eththb+ " คิดเป็นเงิน = "+value+" บาท");
     //sendLine("ตอนนี้ได้เงินจากเครื่องขุดบิทคอยน์ "+value+" บาท");
     
