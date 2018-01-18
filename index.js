@@ -1,7 +1,7 @@
 const https = require("https");
 var token = 'B3s44sxg9DAHBtvktVIxtkCGbwFuNsMiT1f8zdRan09';
 var unpaid = 0.04325;
-var eththb = 0;
+var eththb = 35000;
 var value = 0;
 
 
@@ -58,7 +58,7 @@ https.get(url, res => {
     unpaid = (body.data.unpaid*0.000000000000000001);
     value = (unpaid*eththb).toFixed(2);
 
-    sendLine("ขุดได้เหรียญ ETH แล้ว = "+unpaid+" อัตราแลกเปลี่ยน = "+eththb+ " คิดเป็นเงิน = "+value+" บาท");
+    //sendLine("ขุดได้เหรียญ ETH แล้ว = "+unpaid+" อัตราแลกเปลี่ยน = "+eththb+ " คิดเป็นเงิน = "+value+" บาท");
     console.log("ขุดได้เหรียญ ETH แล้ว = "+unpaid+" อัตราแลกเปลี่ยน = "+eththb+ " คิดเป็นเงิน = "+value+" บาท");
     //sendLine("ตอนนี้ได้เงินจากเครื่องขุดบิทคอยน์ "+value+" บาท");
     
@@ -67,11 +67,11 @@ https.get(url, res => {
 
 }
 
-getMiner();
-
-
 //getMiner();
-setInterval(function(){getMiner()},60000);
+
+sendLine("TEST XX");
+//getMiner();
+//setInterval(function(){getMiner()},60000);
 
 
 
