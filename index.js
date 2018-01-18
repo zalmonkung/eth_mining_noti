@@ -4,7 +4,7 @@ var unpaid = 0.04325;
 var eththb = 35000;
 var value = 0;
 
-
+/*
 function sendLine(msg){
   const request = require('request');
    request({
@@ -21,7 +21,7 @@ function sendLine(msg){
   }, (err,httpResponse,body) => {
   });
    console.log("sendLine : "+msg);
-}
+}*/
 
 
 function getBx(){
@@ -67,11 +67,10 @@ https.get(url, res => {
 
 }
 
-//getMiner();
+getMiner();
 
-sendLine("TEST XX");
-//getMiner();
-//setInterval(function(){getMiner()},60000);
+
+setInterval(function(){getMiner()},60000);
 
 
 
