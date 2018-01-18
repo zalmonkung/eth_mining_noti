@@ -97,3 +97,15 @@ setInterval(function(){getMiner()},20000);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
