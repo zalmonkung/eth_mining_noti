@@ -1,7 +1,9 @@
 const https = require("https");
+var app = require('express')();
+var port = process.env.PORT || 7777;
 var token = 'B3s44sxg9DAHBtvktVIxtkCGbwFuNsMiT1f8zdRan09';
 var unpaid = 0.04325;
-var eththb = 35000;
+var eththb = 0;
 var value = 0;
 
 /*
@@ -70,19 +72,20 @@ https.get(url, res => {
 getMiner();
 
 
-setInterval(function(){getMiner()},60000);
+
+app.get('/', function (req, res) {
+	getMiner();
+    res.send('<h1>'+"ขุดได้เหรียญ ETH แล้ว = "+unpaid+" อัตราแลกเปลี่ยน = "+eththb+ " คิดเป็นเงิน = "+value+" บาท"+'</h1>');
+});
+
+app.listen(port, function() {
+    console.log('Starting node.js on port ' + port);
+});
 
 
 
-
-
-
-
-
-
-
-
-
+//getMiner();
+//setInterval(function(){getMiner()},15*60000);
 
 
 
