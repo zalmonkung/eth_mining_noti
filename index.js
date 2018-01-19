@@ -1,6 +1,7 @@
 const https = require("https");
 var app = require('express')();
 var port = process.env.PORT || 7777;
+var today = new Date(Date.now());
 var token = 'B3s44sxg9DAHBtvktVIxtkCGbwFuNsMiT1f8zdRan09';
 var unpaid = 0.04325;
 var eththb = 0;
@@ -46,7 +47,7 @@ https.get(url, res => {
 
 async function getMiner(){
 	await getBx();
-
+	today = new Date(Date.now());
   const url ="https://api.ethermine.org/miner/0x2c05c58775E35b1C576bC5F5Ec593b2e87587817/currentStats";
 https.get(url, res => {
   res.setEncoding("utf8");
@@ -61,7 +62,7 @@ https.get(url, res => {
     value = (unpaid*eththb).toFixed(2);
 
     //sendLine("ขุดได้เหรียญ ETH แล้ว = "+unpaid+" อัตราแลกเปลี่ยน = "+eththb+ " คิดเป็นเงิน = "+value+" บาท");
-    console.log("ขุดได้เหรียญ ETH แล้ว = "+unpaid+" อัตราแลกเปลี่ยน = "+eththb+ " คิดเป็นเงิน = "+value+" บาท");
+    console.log("ขุดได้เหรียญ ETH แล้ว = "+unpaid+" อัตราแลกเปลี่ยน = "+eththb+ " คิดเป็นเงิน = "+value+" บาท  "+ today.toUTCString());
     //sendLine("ตอนนี้ได้เงินจากเครื่องขุดบิทคอยน์ "+value+" บาท");
     
   });
@@ -74,8 +75,9 @@ getMiner();
 
 
 app.get('/', function (req, res) {
+	
 	getMiner();
-    res.send('<h1>'+"ขุดได้เหรียญ ETH แล้ว = "+unpaid+" อัตราแลกเปลี่ยน = "+eththb+ " คิดเป็นเงิน = "+value+" บาท"+'</h1>');
+    res.send('<h1>'+"ขุดได้เหรียญ ETH แล้ว = "+unpaid+" อัตราแลกเปลี่ยน = "+eththb+ " คิดเป็นเงิน = "+value+" บาท  "+ today.toUTCString()+'</h1>');
 });
 
 app.listen(port, function() {
