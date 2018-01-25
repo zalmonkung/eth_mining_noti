@@ -86,8 +86,8 @@ app.listen(port, function() {
 
 
 
-//getMiner();
-//setInterval(function(){getMiner()},15*60000);
+getMiner();
+setInterval(function(){getMiner()},15*60000);
 
 
 
